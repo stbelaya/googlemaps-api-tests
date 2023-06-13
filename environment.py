@@ -4,18 +4,18 @@ import os
 # $Env:ENV='dev' or $Env:ENV='prod'
 class Environment:
     DEV = 'dev'
-    PROD = 'prod'
+    TEST = 'test'
     KEY = "?key=qaclick123"
 
     URLS = {
-        PROD: "https://rahulshettyacademy.com"
+        TEST: "https://rahulshettyacademy.com"
     }
 
     def __init__(self):
         try:
             self.env = os.environ['ENV']
         except KeyError:
-            self.env = self.PROD
+            self.env = self.TEST
 
     def get_base_url(self):
         if self.env in self.URLS:
